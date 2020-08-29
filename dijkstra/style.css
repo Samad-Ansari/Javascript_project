@@ -1,0 +1,56 @@
+.grid {
+	border: 1px solid;
+	display: flex;
+	flex-wrap: wrap;
+	height: 540px;
+	width: 540px;
+}
+
+.grid div {
+	width: 50px;
+	height: 50px;
+	margin: 2px;
+}
+
+.pallet {
+	background-color: green;
+	font-size: 20px;
+	font-weight: 800;
+	color: white;
+	text-align: center;
+
+}
+
+.end {
+	background-color: blue;
+	transition: all .6s ease;
+}
+.move {
+	background-color: orange;
+	transition: all 0.5s ease;
+}
+
+.wall {
+	background-color: black;
+	transition: all 0.5s ease;
+}
+
+.button {
+	width: 200px;
+	font-size: 20px;
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #c367ff;
+}
+
+.banner {
+	font-size: 20px;
+	padding: 10px;
+	margin: 5px;
+	border: 2px solid;
+	border-radius: 10px;
+	background-color: #f7788e;
+	color: white;
+	width: 200px;
+}

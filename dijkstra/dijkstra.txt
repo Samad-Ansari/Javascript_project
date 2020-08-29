@@ -1,0 +1,69 @@
+board = [
+	[0, 4, 8, 0, 0],
+	[4, 0, 2, 5, 0],
+	[8, 2, 0, 5, 9],
+	[0, 5, 5, 0, 4],
+	[0, 0, 9, 4, 0],
+]
+
+dist = []
+visited = []
+parent = []
+
+function printPath(j) {
+
+	if(parent[j] == -0) {
+		return;
+	}
+	printPath(parent[j]);
+
+	console.log(j + ' ')
+
+}
+
+function printSolution(){
+	src = 0;
+	console.log('vertex\t\t distance \t path');
+	for(let i =0; i<5; i++){
+		console.log(src + ' -> ' + i + '\t\t\t' + dist[i] + ' \t\t\t' + 0 + ' ')
+		printPath(i)
+	}
+
+}
+
+function minDistance() {
+	let min_index, min = 999;
+	for(let i=0; i<5; i++) {
+		if(visited[i] == false && dist[i] <= min) {
+			min = dist[i];
+			min_index = i;
+		}
+	}
+	return min_index;
+}
+
+function dijkstra() {
+
+	for(let i=0; i<5; i++) {
+		dist[i] = 999;
+		visited[i] = false;
+		parent[i] = -0;
+	}
+	dist[0] = 0;
+
+	for(let j=0; j<5; j++) {
+
+		let u = minDistance();
+		visited[u] = true;
+		for(let v = 0 ; v< 5; v++) {
+			if(!visited[v] && board[u][v] && dist[u] + board[u][v] < dist[v])
+			{
+				parent[v] = u;
+				dist[v] = dist[u] + board[u][v];
+			}
+		}
+	
+	}
+
+	printSolution();
+}
